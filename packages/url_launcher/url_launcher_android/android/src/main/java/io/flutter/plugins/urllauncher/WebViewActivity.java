@@ -26,6 +26,7 @@ import androidx.annotation.VisibleForTesting;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import io.flutter.plugins.webviewflutter.FileChooserLauncher;
 
 /*  Launches WebView activity */
 public class WebViewActivity extends Activity {
@@ -80,6 +81,25 @@ public class WebViewActivity extends Activity {
 
   // Verifies that a url opened by `Window.open` has a secure url.
   private class FlutterWebChromeClient extends WebChromeClient {
+
+    @Override
+public boolean onShowFileChooser(
+        WebView webView,
+        ValueCallback<Uri[]> filePathCallback,
+        FileChooserParams fileChooserParams) {
+  // info as of 2021-03-08:
+  // don't use fileChooserParams.getTitle() as it is (always? on                Mi 9T Pro Android 10 at least) null
+  // don't use fileChooserParams.isCaptureEnabled() as it is (always? on Mi 9T Pro Android 10 at least) false, even when the file upload allows images or any file
+  final Context context = webView.getContext();
+  final boolean allowMultipleFiles = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
+          && fileChooserParams.getMode() == FileChooserParams.MODE_OPEN_MULTIPLE;
+  final String[] acceptTypes = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
+          ? fileChooserParams.getAcceptTypes() : new String[0];
+  new FileChooserLauncher(context, allowMultipleFiles, filePathCallback, acceptTypes)
+          .start();
+  return true;
+} }
+
     @Override
     public boolean onCreateWindow(
         final WebView view, boolean isDialog, boolean isUserGesture, Message resultMsg) {

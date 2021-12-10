@@ -1,2 +1,21 @@
 <manifest package="io.flutter.plugins.webviewflutter">
+ <application>
+ <provider
+     android:name="io.flutter.plugins.webviewflutter.GenericFileProvider"
+     android:authorities="${applicationId}.generic.provider"
+     android:exported="false"
+     android:grantUriPermissions="true"
+     >
+     <meta-data
+         android:name="android.support.FILE_PROVIDER_PATHS"
+         android:resource="@xml/provider_paths"
+         />
+ </provider>
+
+ </application>
+ <queries>
+     <package android:name="com.google.android.apps.photos" />
+     <package android:name="com.google.android.apps.docs" />
+     <package android:name="com.google.android.documentsui" />
+ </queries>
 </manifest>
