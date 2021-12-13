@@ -1,12 +1,7 @@
 <manifest package="io.flutter.plugins.webviewflutter"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <application>
-        <queries>
-            <package android:name="com.google.android.apps.photos" />
-            <package android:name="com.google.android.apps.docs" />
-            <package android:name="com.google.android.documentsui" />
-        </queries>
-        <activity
+         <activity
             android:name="io.flutter.plugins.webviewflutter.RequestCameraPermissionActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity
