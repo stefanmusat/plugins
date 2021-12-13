@@ -18,6 +18,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.webkit.ValueCallback;
 import androidx.core.content.ContextCompat;
+import io.flutter.plugins.webviewflutter.RequestCameraPermissionActivity;
 
 public class FileChooserLauncher extends BroadcastReceiver {
 
