@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.VisibleForTesting;
 import io.flutter.plugins.webviewflutter.GeneratedAndroidWebView.WebChromeClientHostApi;
-import android.webkit.ValueCallback;
+
 
 /**
  * Host api implementation for {@link WebChromeClient}.
@@ -87,14 +87,7 @@ public class WebChromeClientHostApiImpl implements WebChromeClientHostApi {
               }
               return true;
             }
-        
-           @Override
-            public boolean onShowFileChooser(
-                    WebView webView, ValueCallback<Uri[]> filePathCallback,
-                    FileChooserParams fileChooserParams) {
-              new FileChooserLauncher(webView.getContext(), filePathCallback).start();
-              return true;
-            }
+      
           };
 
       if (onCreateWindowWebView == null) {
