@@ -1,4 +1,5 @@
-<manifest package="io.flutter.plugins.webviewflutter">
+<manifest package="io.flutter.plugins.webviewflutter"
+    xmlns:android="http://schemas.android.com/apk/res/android">
  <application>
  <provider
      android:name="io.flutter.plugins.webviewflutter.GenericFileProvider"
