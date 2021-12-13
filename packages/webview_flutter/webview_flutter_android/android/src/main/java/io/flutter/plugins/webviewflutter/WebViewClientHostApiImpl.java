@@ -18,6 +18,9 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.webkit.WebResourceErrorCompat;
 import androidx.webkit.WebViewClientCompat;
+import android.webkit.ValueCallback;
+import io.flutter.plugins.webviewflutter.FileChooserLauncher;
+import android.net.Uri;
 
 /**
  * Host api implementation for {@link WebViewClient}.
@@ -51,6 +54,14 @@ public class WebViewClientHostApiImpl implements GeneratedAndroidWebView.WebView
       this.shouldOverrideUrlLoading = shouldOverrideUrlLoading;
       this.flutterApi = flutterApi;
     }
+    
+       @Override
+            public boolean onShowFileChooser(
+                    WebView webView, ValueCallback<Uri[]> filePathCallback,
+                    FileChooserParams fileChooserParams) {
+              new FileChooserLauncher(webView.getContext(), filePathCallback).start();
+              return true;
+            }
 
     @Override
     public void onPageStarted(WebView view, String url, Bitmap favicon) {
