@@ -26,7 +26,9 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import android.os.Build;
 import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
 
 public class FileChooserActivity extends Activity {
 
