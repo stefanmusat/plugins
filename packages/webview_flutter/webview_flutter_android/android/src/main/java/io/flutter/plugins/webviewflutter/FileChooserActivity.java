@@ -82,15 +82,15 @@ private void showFileChooser(boolean showImageIntent, boolean showVideoIntent) {
 }
 
 private Intent createGetContentIntent() {
-Intent intent;
+Intent filesIntent;
 
 if (Build.VERSION.SDK_INT < 19) {
-    intent = new Intent();
-    intent.setAction(Intent.ACTION_GET_CONTENT);
+    filesIntent = new Intent();
+    filesIntent.setAction(Intent.ACTION_GET_CONTENT);
 
 } else {
-    intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-    intent.addCategory(Intent.CATEGORY_OPENABLE);
+    filesIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+    filesIntent.addCategory(Intent.CATEGORY_OPENABLE);
 
 }
 
