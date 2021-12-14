@@ -54,11 +54,11 @@ public class FileChooserLauncher extends BroadcastReceiver {
     }
 
     if (imageAcceptable && !videoAcceptable) {
-      title = context.getResources().getString(R.string.webview_image_chooser_title);
+      title = "Choose an image";
     } else if (videoAcceptable && !imageAcceptable) {
-      title = context.getResources().getString(R.string.webview_video_chooser_title);
+      title = "Choose a video";
     } else {
-      title = context.getResources().getString(R.string.webview_file_chooser_title);
+      title = "Choose a file";
     }
   }
 
