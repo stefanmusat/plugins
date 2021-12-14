@@ -94,6 +94,7 @@ if (Build.VERSION.SDK_INT < 19) {
 } else {
     filesIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
     filesIntent.addCategory(Intent.CATEGORY_OPENABLE);
+    
 
 }
 
@@ -101,18 +102,7 @@ if (Build.VERSION.SDK_INT < 19) {
         filesIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
     }
 
-    String[] acceptTypes = getIntent().getStringArrayExtra(EXTRA_ACCEPT_TYPES);
-
-    if (acceptTypes.length == 0 || (acceptTypes.length == 1 && acceptTypes[0].length() == 0)) {
-        // empty array or only 1 empty string? -> accept all types
-        filesIntent.setType("*/*");
-    } else if (acceptTypes.length == 1) {
-        filesIntent.setType(acceptTypes[0]);
-    } else {
-        // acceptTypes.length > 1
-        filesIntent.setType("*/*");
-        filesIntent.putExtra(Intent.EXTRA_MIME_TYPES, acceptTypes);
-    }
+  filesIntent.setType("*/*");
 
     return (filesIntent.resolveActivity(getPackageManager()) != null) ? filesIntent : null;
 }
