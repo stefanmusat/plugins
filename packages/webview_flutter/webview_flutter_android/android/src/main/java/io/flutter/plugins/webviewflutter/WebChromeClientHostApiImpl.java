@@ -48,6 +48,12 @@ public class WebChromeClientHostApiImpl implements WebChromeClientHostApi {
       this.webViewClient = webViewClient;
     }
     
+     @Override
+    public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+        android.util.Log.d("android webview", consoleMessage.message());
+        return true;
+    }
+    
    
     @Override
     public boolean onShowFileChooser(
