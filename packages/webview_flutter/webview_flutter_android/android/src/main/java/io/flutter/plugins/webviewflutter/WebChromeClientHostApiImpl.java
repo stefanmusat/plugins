@@ -6,6 +6,7 @@ package io.flutter.plugins.webviewflutter;
 
 import android.os.Build;
 import android.os.Message;
+import android.webkit.ConsoleMessage;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
