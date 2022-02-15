@@ -122,7 +122,7 @@ public class FileChooserActivity extends Activity {
   }
 
   private File getStorageDirectory() {
-    File imageDirectory = new File(getCacheDir(), WEBVIEW_STORAGE_DIRECTORY);
+    File imageDirectory = new File(this.getExternalFilesDir(null), WEBVIEW_STORAGE_DIRECTORY);
     if (!imageDirectory.exists() && !imageDirectory.mkdir()) {
       Log.e(TAG, "Unable to create storage directory");
     }
