@@ -16,5 +16,5 @@
   <cache-path name="storage" path="storage"/>
   <cache-path name="cache" path="/" />
   <cache-path name="cache" path="." />
-  <cache-path name="my_images" path="/" />
+  <cache-path name="cache" path="images" />
 </paths>
