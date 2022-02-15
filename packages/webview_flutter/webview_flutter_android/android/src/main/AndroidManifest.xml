@@ -3,9 +3,11 @@
     <application>
          <activity
             android:name="io.flutter.plugins.webviewflutter.RequestCameraPermissionActivity"
+            android:exported="false"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity
             android:name="io.flutter.plugins.webviewflutter.FileChooserActivity"
+            android:exported="false"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
         <provider
