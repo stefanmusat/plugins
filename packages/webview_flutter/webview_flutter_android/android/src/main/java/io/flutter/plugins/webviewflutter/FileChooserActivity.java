@@ -43,16 +43,10 @@ public class FileChooserActivity extends Activity {
     showFileChooser(
         getIntent().getBooleanExtra(EXTRA_SHOW_IMAGE_OPTION, false),
         getIntent().getBooleanExtra(EXTRA_SHOW_VIDEO_OPTION, false));
+      // Register receiver that may finish this Activity.
+    ContextCompat.registerReceiver(
+        this, broadcastReceiver, closeIntentFilter, ContextCompat.RECEIVER_EXPORTED);
   }
-
-   @Override
-    public Intent registerReceiver(@Nullable BroadcastReceiver receiver, IntentFilter filter) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            return super.registerReceiver(receiver, filter, Context.RECEIVER_EXPORTED);
-        } else {
-            return super.registerReceiver(receiver, filter);
-        }
-    }
 
   private void showFileChooser(boolean showImageIntent, boolean showVideoIntent) {
     Intent getContentIntent = createGetContentIntent();
